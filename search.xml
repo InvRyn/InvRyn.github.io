@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>Butterfly添加音乐播放器</title>
+      <link href="/2022/07/14/Butterfly%E6%B7%BB%E5%8A%A0%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8/"/>
+      <url>/2022/07/14/Butterfly%E6%B7%BB%E5%8A%A0%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h1 id="APlayer-amp-MetingJS-音乐播放器使用指南"><a href="#APlayer-amp-MetingJS-音乐播放器使用指南" class="headerlink" title="APlayer &amp; MetingJS 音乐播放器使用指南"></a>APlayer &amp; MetingJS 音乐播放器使用指南</h1><blockquote><p>APlayer 是一个简洁漂亮、功能强大的 Html5 音乐播放器<br>MetingJS 是为 APlayer 添加网易云、QQ音乐等支持的插件</p></blockquote><p>他们的 GitHub 项目地址分别为：</p><p>APlayer：<a href="https://github.com/DIYgod/APlayer">https://github.com/DIYgod/APlayer</a><br>MetingJS：<a href="https://github.com/metowolf/MetingJS">https://github.com/metowolf/MetingJS</a></p><h2 id="插件安装"><a href="#插件安装" class="headerlink" title="插件安装"></a>插件安装</h2><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">npm</span> <span class="string">install</span> <span class="string">aplayer</span> <span class="string">--save</span></span><br></pre></td></tr></table></figure><h2 id="插件使用"><a href="#插件使用" class="headerlink" title="插件使用"></a>插件使用</h2><p>在 Hexo 博客根目录下的 _config.yml 文件中加入</p><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">aplayer:</span></span><br><span class="line">  <span class="attr">meting:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure><p>在 Hexo 博客根目录下，鼠标右击打开 Git Bash Here，输入</p><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">hexo</span> <span class="string">new</span> <span class="string">page</span> <span class="string">music</span></span><br></pre></td></tr></table></figure><p>这时会生成一个 music 的文件夹，打开里面名为 index.md 的文件，将 文章type 改为与 menu 对应的 music，且需要加 “ “，文件内容改为如下：</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- <span class="built_in">require</span> <span class="title class_">APlayer</span> --&gt;</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">href</span>=<span class="string">&quot;https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="comment">&lt;!-- require MetingJS --&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">meting-js</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml"><span class="attr">server</span>=<span class="string">&quot;netease&quot;</span> # <span class="attr">server</span> 指定调用的 <span class="attr">API</span>，可选<span class="attr">netease</span>，<span class="attr">tencent</span>，<span class="attr">kugou</span>，分别对应网易云音乐、<span class="attr">QQ</span>音乐、酷狗音乐</span></span></span><br><span class="line"><span class="tag"><span class="language-xml"><span class="attr">type</span>=<span class="string">&quot;playlist&quot;</span> # <span class="attr">type</span> 指定调用类型，可选 <span class="attr">song</span>，<span class="attr">playlist</span>，<span class="attr">album</span>，<span class="attr">search</span>，<span class="attr">artist</span>；分别对应单曲、歌单、专辑、搜索结果、艺术家</span></span></span><br><span class="line"><span class="tag"><span class="language-xml"><span class="attr">autoplay</span>=<span class="string">&quot;true&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml"><span class="attr">listmaxheight</span>=<span class="string">&quot;700px&quot;</span> # 播放列表的高度</span></span></span><br><span class="line"><span class="tag"><span class="language-xml"><span class="attr">id</span>=<span class="string">&quot;7524119092&quot;</span>&gt;</span> # id 指定调用的 id，一般可以在地址栏中找到</span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;/<span class="name">meting-js</span>&gt;</span></span></span><br></pre></td></tr></table></figure><p>上述是引用网易云的案例，具体的可以参见 <a href="https://github.com/metowolf/MetingJS">MetingJS</a></p><p>值得注意的是：除了 mini 模式，MetingJS 生成的播放器默认是带有歌词的（关不掉）。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Hexo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Hexo </tag>
+            
+            <tag> 主题美化 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Butterfly主题美化</title>
       <link href="/2022/07/12/Butterfly%E4%B8%BB%E9%A2%98%E7%BE%8E%E5%8C%96/"/>
       <url>/2022/07/12/Butterfly%E4%B8%BB%E9%A2%98%E7%BE%8E%E5%8C%96/</url>
